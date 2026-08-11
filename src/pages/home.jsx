@@ -10,13 +10,14 @@ import robinsharmabigposter from "../assets/robinsharmabigposter.jpg"
 import robinsharmabook from "../assets/robinsharmabook.webp"
 import { Footer } from '../components/Footer'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import robinHeroVideo from "../assets/robinherovideo.mp4";
 
 const Home = () => {
     return (
         <div className="">
             <section className="relative w-full h-[600px] aspect-video">
                 <video className="absolute w-full h-[600px] inset-0 object-cover" autoPlay muted loop playsInline>
-                    <source src="../assets/robinHome-cut.mp4" type="video/mp4" />
+                    <source src={robinHeroVideo} />
                 </video>
                 <div className=" absolute inset-0 flex flex-col pt-40 items-center gap-10">
                     <div className="relative w-full h-[100px] overflow-hidden">
