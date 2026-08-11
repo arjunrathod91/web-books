@@ -16,7 +16,7 @@ const Home = () => {
         <div className="">
             <section className="relative w-full h-[600px] aspect-video">
                 <video className="absolute w-full h-[600px] inset-0 object-cover" autoPlay muted loop playsInline>
-                    <source src="https://player.cloudinary.com/embed/?cloud_name=dqndusfo&public_id=robinHome-cut&profile=cld-default" type="video/mp4" />
+                    <source src="/src/assets/robinHome-cut.mp4" type="video/mp4" />
                 </video>
                 <div className=" absolute inset-0 flex flex-col pt-40 items-center gap-10">
                     <div className="relative w-full h-[100px] overflow-hidden">
