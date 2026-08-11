@@ -28,15 +28,15 @@ export default function Navbar() {
                     <Link to="/login" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">LOGIN FOR MEMBERS</Link>
                 </div>
                 <div className="xl:hidden text-center" onClick={()=>setShowNav(!showNav)}><MenuIcon/></div>
-                <div className="xl:hidden w-full bg-white flex flex-col text-center" style={{ display: showNav ? 'flex' : 'none' }}>
-                    <Link to="/about" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">ABOUT ROBIN</Link>
-                    <Link to="/speaking" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">SPEAKING</Link>
-                    <Link to="/podcast" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">PODCAST</Link>
-                    <Link to="/blog" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BLOG</Link>
-                    <Link to="/books" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BOOKS</Link>
-                    <Link to="/courses" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">COURSES</Link>
-                    <Link to="/contact" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">CONTACT</Link>
-                    <Link to="/login" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">LOGIN FOR MEMBERS</Link>
+                <div className="xl:hidden onClick={()=>setShowNav(!showNav)} w-full bg-white flex flex-col text-center" style={{ display: showNav ? 'flex' : 'none' }}>
+                    <Link to="/about" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">ABOUT ROBIN</Link>
+                    <Link to="/speaking" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">SPEAKING</Link>
+                    <Link to="/podcast" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">PODCAST</Link>
+                    <Link to="/blog" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BLOG</Link>
+                    <Link to="/books" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BOOKS</Link>
+                    <Link to="/courses" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">COURSES</Link>
+                    <Link to="/contact" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">CONTACT</Link>
+                    <Link to="/login" onClick={()=>setShowNav(!showNav)} className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">LOGIN FOR MEMBERS</Link>
                 </div>
                 
             </div>
