@@ -1,8 +1,11 @@
 // import { Link } from 'react-router-dom'
 
 import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from "react";
 
 export default function Navbar() {
+    const [showNav,setShowNav] = useState(false);
   return (
     <nav>
       {/* <Link to="/">Home</Link>
@@ -14,7 +17,7 @@ export default function Navbar() {
                 <div className="flex justify-center">
                     <div className="h-0.5 bg-gray-300 w-[90%]"></div>
                 </div>
-                <div className="flex justify-center items-center text-black-500 font-normal leading-[1.2]">
+                <div className="hidden xl:flex justify-center items-center text-black-500 font-normal leading-[1.2]">
                     <Link to="/about" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">ABOUT ROBIN</Link>
                     <Link to="/speaking" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">SPEAKING</Link>
                     <Link to="/podcast" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">PODCAST</Link>
@@ -24,6 +27,18 @@ export default function Navbar() {
                     <Link to="/contact" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">CONTACT</Link>
                     <Link to="/login" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">LOGIN FOR MEMBERS</Link>
                 </div>
+                <div className="xl:hidden text-center" onClick={()=>setShowNav(!showNav)}><MenuIcon/></div>
+                <div className="xl:hidden w-full bg-white flex flex-col text-center" style={{ display: showNav ? 'flex' : 'none' }}>
+                    <Link to="/about" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">ABOUT ROBIN</Link>
+                    <Link to="/speaking" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">SPEAKING</Link>
+                    <Link to="/podcast" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">PODCAST</Link>
+                    <Link to="/blog" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BLOG</Link>
+                    <Link to="/books" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">BOOKS</Link>
+                    <Link to="/courses" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">COURSES</Link>
+                    <Link to="/contact" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">CONTACT</Link>
+                    <Link to="/login" className="px-[30px] py-[20px] transition-colors duration-500 hover:text-orange-300">LOGIN FOR MEMBERS</Link>
+                </div>
+                
             </div>
     </nav>
   )
