@@ -10,27 +10,15 @@ import robinsharmabigposter from "../assets/robinsharmabigposter.jpg"
 import robinsharmabook from "../assets/robinsharmabook.webp"
 import { Footer } from '../components/Footer'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-// import { px } from 'motion'
-// import Button from '@mui/material/Button';
 
 const Home = () => {
-    // const texts = [
-    //     "IMPACT THE WORLD",
-    //     "LEAD THE FIELD",
-    //     "INSPIRE YOUTH"
-    // ];
     return (
         <div className="">
             <section className="relative w-full h-[600px] aspect-video">
                 <video className="absolute w-full h-[600px] inset-0 object-cover" autoPlay muted loop playsInline>
-                    <source src="/src/assets/robinHome-cut.mp4" type="video/mp4" />
+                    <source src="https://player.cloudinary.com/embed/?cloud_name=dqndusfo&public_id=robinHome-cut&profile=cld-default" type="video/mp4" />
                 </video>
                 <div className=" absolute inset-0 flex flex-col pt-40 items-center gap-10">
-                    {/* <div className="relative h-[100px] w-full overflow-hidden border">
-                        <p className="absolute animate-[moveDown_3s_ease-in-out_infinite] w-full text-center text-6xl text-black">
-                            IMPACT THE WORLD
-                        </p>
-                    </div> */}
                     <div className="relative w-full h-[100px] overflow-hidden">
 
                         <p className="absolute w-full text-white text-center text-7xl animate-[moveDown_6s_ease-in-out_infinite]">
