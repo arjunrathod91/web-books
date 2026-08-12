@@ -14,13 +14,14 @@ import robinHeroVideo from "../assets/robinherovideo.mp4";
 
 const Home = () => {
     return (
-        <div className="">
+        <div className="pt-30">
             <section className="h-[300px] relative w-full md:h-[600px] aspect-video">
                 <video className="absolute w-full h-full md:h-full inset-0 object-cover" autoPlay muted loop playsInline>
                     <source src={robinHeroVideo} />
                 </video>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className=" absolute inset-0 flex flex-col pt-15 xl:pt-20 md:pt-40 md:gap-10">
-                    <div className="relative w-full h-[60px] xl:h-[100px] overflow-hidden">
+                    <div className="relative w-full h-[60px] xl:h-[100px] overflow-hidden font-medium">
 
                         <p className="absolute w-full text-white text-center text-3xl xl:text-7xl animate-[moveDown_6s_ease-in-out_infinite]">
                             IMPACT THE WORLD
@@ -48,7 +49,7 @@ const Home = () => {
                     <p className='text-center pt-10 md:pt-20 text-2xl text-black font-medium px-10 xl:px-80 '>Trusted Advisor to Fortune 100 Executives, Championship Athletes, and Titans of Industry</p>
 
                 </div>
-                <div className="w-full">
+                <div className="w-full grayscale brightness-125">
                     <div className='w-full xl:px-40 pb-10'>
                         <div className="w-full flex xl:py-10 overflow-hidden">
                             <div className="w-full flex justify-center gap-5 p-2 animate-[slideleft_8s_ease-in-out_infinite]">
@@ -170,9 +171,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full flex flex-col flex-col-reverse xl:flex-row bg-gray-100 gap-5 md:gap-20 ">
-                <div className="w-full xl:w-[50%] flex flex-col gap-3 xl:pl-40 p-5">
-                    <p className='font-medium text-black text-4xl xl:text-5xl pt-10'>The Daily Mastery Podcast</p>
+            <section className="w-full flex flex-col flex-col-reverse lg:flex-row bg-gray-100 lg:gap-20 ">
+                <div className="w-full lg:w-[50%] flex flex-col gap-3 pl-5 xl:pl-40 pb-10 pr-5 sm:py-10">
+                    <p className='font-medium text-black text-4xl lg:text-5xl xl:pt-10'>The Daily Mastery Podcast</p>
                     <p className='text-xl font-medium text-gray-600'>Your daily operating system for excellence.</p>
                     <p className=' text-black xl:pr-30 text-xl pb-3'>Join millions of listeners worldwide who start their day with wisdom distilled from decades of mentoring elite performers, plus mental models and productivity tactics you can implement immediately.</p>
                     <div className='flex justify-center items-center gap-2 w-50 bg-black text-lg px-2 py-1 text-white hover:bg-orange-400 transition-colors duration-500 cursor-pointer'>LISTEN NOW <div className='flex justify-center items-center'><ArrowForwardIcon sx={{ fontSize: 25 }} /></div></div>
@@ -181,12 +182,12 @@ const Home = () => {
                     </Button> */}
                 </div>
                 <div className="flex justify-center items-center">
-                    <img className="h-[400px] w-[350px]" src={robinsharmapodcast} />
+                    <img className="h-[400px] w-[350px] p-10 lg:p-1" src={robinsharmapodcast} />
                 </div>
             </section>
 
             <section className="w-full h-full flex flex-col xl:flex-row justify-center items-center gap-5 xl:gap-20">
-                <div className="bg-green-500 w-full md:w-[50%]">
+                <div className="bg-green-500 w-full xl:w-[50%]">
                     <img className="h-full w-full" src={robinsharmabigposter} />
                 </div>
                 <div className="w-full xl:w-[50%] flex flex-col gap-5 xl:pr-20 p-5">
@@ -208,15 +209,15 @@ const Home = () => {
                     <img className='h-full w-full' src={robinsharmabook} />
                 </div>
             </section>
-            <section className=' flex flex-col xl:justify-center xl:items-center gap-5 py-10 xl:py-20 bg-gray-100'>
-                <p className='text-xl lg:text-3xl text-black px-5'>Personal Mentorship from Robin Sharma, Direct to Your Inbox</p>
-                <p className='text-1xl text-black text-light px-5 xl:text-center xl:px-60'>Gain access to Robin’s powerful insights to lead brilliantly, perform at your peak, and create lasting impact – all shared to support your highest work and best life.</p>
-                <div className='flex flex-col gap-2 xl:flex-row xl:gap-0 pt-10 px-5'>
+            <section className='flex flex-col sm:justify-center sm:items-center gap-5 py-10 xl:py-20 bg-gray-100 p-5'>
+                <p className='text-xl sm:text-3xl sm:text-center text-black px-5'>Personal Mentorship from Robin Sharma, Direct to Your Inbox</p>
+                <p className='text-1xl text-black text-light px-5 sm:text-center xl:px-60'>Gain access to Robin’s powerful insights to lead brilliantly, perform at your peak, and create lasting impact – all shared to support your highest work and best life.</p>
+                <div className='flex flex-col gap-2 sm:flex-row sm:gap-0 pt-10 px-5'>
                     {/* <div className='bg-white w-[200px] h-[10px]'>
                         <input placeholder='EMAIL ADDRESS' className="" />
                     </div> */}
-                    <input placeholder='EMAIL ADDRESS' className="pl-1 py-0.5 w-50 pl-3 py-0.5 text-black border border-gray-500 bg-white outline-none" />
-                    <div className='flex justify-center items-center gap-2 xl:w-60 bg-black text-lg px-2 py-1 text-white hover:bg-orange-400 transition-colors duration-500 cursor-pointer'>YES, SUBSCRIBE NOW <div className='flex justify-center items-center'><ArrowForwardIcon sx={{ fontSize: 25 }} /></div></div>
+                    <input placeholder='EMAIL ADDRESS' className="pl-1 py-0.5 w-full sm:w-50 pl-3 py-0.5 text-black border border-gray-500 bg-white outline-none" />
+                    <div className='flex justify-center items-center gap-2 sm:w-60 bg-black text-lg px-2 py-1 text-white hover:bg-orange-400 transition-colors duration-500 cursor-pointer'>YES, SUBSCRIBE NOW <div className='flex justify-center items-center'><ArrowForwardIcon sx={{ fontSize: 25 }} /></div></div>
                 </div>
             </section>
             <Footer />

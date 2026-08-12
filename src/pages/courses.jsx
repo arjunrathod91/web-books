@@ -1,5 +1,5 @@
 export default function courses() {
   return (
-    <div>courses</div>
+    <div className="pt-30">courses</div>
   )
 }

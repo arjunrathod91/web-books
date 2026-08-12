@@ -1,6 +1,6 @@
 function podcast() {
   return (
-    <div>podcast</div>
+    <div className="pt-30">podcast</div>
   )
 }
 

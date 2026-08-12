@@ -1,5 +1,5 @@
 export default function blog() {
   return (
-    <div>blog</div>
+    <div className="pt-30">blog</div>
   )
 }
