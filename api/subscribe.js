@@ -28,14 +28,16 @@ export default async function handler(req, res) {
       `,
     });
 
+    console.log("EMAIL:", email);
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
     if (error) {
-      console.error(error);
-       console.log("Email:", email);
-    console.log("Resend result:", data);
-    console.log("Resend error:", error);
+      console.error("RESEND ERROR:", error);
 
       return res.status(500).json({
         message: "Failed to send email",
+        error: error.message,
       });
     }
 
