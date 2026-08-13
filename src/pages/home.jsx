@@ -11,8 +11,28 @@ import robinsharmabook from "../assets/robinsharmabook.webp"
 import { Footer } from '../components/Footer'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import robinHeroVideo from "../assets/robinherovideo.mp4";
+import { useState } from 'react'
 
 const Home = () => {
+    const [email,setEmail] = useState('');
+
+    const handleSubscribe = async () => {
+  try {
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};
     return (
         <div className="pt-30">
             <section className="h-[300px] relative w-full md:h-[600px] aspect-video">
@@ -216,8 +236,8 @@ const Home = () => {
                     {/* <div className='bg-white w-[200px] h-[10px]'>
                         <input placeholder='EMAIL ADDRESS' className="" />
                     </div> */}
-                    <input placeholder='EMAIL ADDRESS' className="pl-1 py-0.5 w-full sm:w-50 pl-3 py-0.5 text-black border border-gray-500 bg-white outline-none" />
-                    <div className='flex justify-center items-center gap-2 sm:w-60 bg-black text-lg px-2 py-1 text-white hover:bg-orange-400 transition-colors duration-500 cursor-pointer'>YES, SUBSCRIBE NOW <div className='flex justify-center items-center'><ArrowForwardIcon sx={{ fontSize: 25 }} /></div></div>
+                    <input placeholder='EMAIL ADDRESS' className="pl-1 py-0.5 w-full sm:w-50 pl-3 py-0.5 text-black border border-gray-500 bg-white outline-none" type='email' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    <div className='flex justify-center items-center gap-2 sm:w-60 bg-black text-lg px-2 py-1 text-white hover:bg-orange-400 transition-colors duration-500 cursor-pointer' onClick={handleSubscribe}>YES, SUBSCRIBE NOW <div className='flex justify-center items-center'><ArrowForwardIcon sx={{ fontSize: 25 }} /></div></div>
                 </div>
             </section>
             <Footer />

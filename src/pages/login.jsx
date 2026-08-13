@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import loginbackground from "../assets/loginbackground.png"
 import robinsharmaloginlogo from "../assets/robinsharmaloginlogo.svg"
@@ -45,12 +46,12 @@ export default function login() {
                 <div className="pt-20">
 
                     <div className="w-full xl:w-100 h-[80px] border border-gray-400">
-                        <p className="p-2 text-sm text-gray-500" value={email} type="email">Email</p>
-                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <p className="p-2 text-sm text-gray-500">Email</p>
+                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full"  type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="w-full xl:w-100 h-[80px] border border-gray-400">
-                        <p className="p-2 text-sm text-gray-500" type="password" >Passward</p>
-                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <p className="p-2 text-sm text-gray-500" >Passward</p>
+                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                 </div>
 
