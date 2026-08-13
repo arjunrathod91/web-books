@@ -12,25 +12,25 @@ import { Footer } from '../components/Footer'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import robinHeroVideo from "../assets/robinherovideo.mp4";
 import { useState } from 'react'
+import emailjs from "@emailjs/browser";
 
 const Home = () => {
     const [email,setEmail] = useState('');
 
     const handleSubscribe = async () => {
   try {
-    const response = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        to_email: email,
       },
-      body: JSON.stringify({ email }),
-    });
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
 
-    const data = await response.json();
-
-    console.log(data);
+    console.log("Email sent:", response.status, response.text);
   } catch (error) {
-    console.error(error);
+    console.error("Email failed:", error);
   }
 };
     return (
