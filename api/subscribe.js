@@ -1,15 +1,53 @@
-export default function handler(req, res) {
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({
       message: "Method not allowed",
     });
   }
 
-  const { email } = req.body;
+  try {
+    const { email } = req.body;
 
-  console.log("Received email:", email);
+    if (!email) {
+      return res.status(400).json({
+        message: "Email is required",
+      });
+    }
 
-  return res.status(200).json({
-    message: "Subscription successful",
-  });
+    const { data, error } = await resend.emails.send({
+      from: "Web Books <onboarding@resend.dev>",
+      to: [email],
+      subject: "Thank you for subscribing!",
+      html: `
+        <h2>Thank you for subscribing to Web Books!</h2>
+        <p>We're happy to have you with us.</p>
+      `,
+    });
+
+    if (error) {
+      console.error(error);
+       console.log("Email:", email);
+    console.log("Resend result:", data);
+    console.log("Resend error:", error);
+
+      return res.status(500).json({
+        message: "Failed to send email",
+      });
+    }
+
+    return res.status(200).json({
+      message: "Subscription successful",
+      data,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Something went wrong",
+    });
+  }
 }
