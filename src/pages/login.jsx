@@ -1,29 +1,79 @@
 
 import { useState } from "react"
+import { useEffect } from "react";
 import loginbackground from "../assets/loginbackground.png"
 import robinsharmaloginlogo from "../assets/robinsharmaloginlogo.svg"
 import Alert from '@mui/material/Alert';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
 
-export default function login() {
+export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const handleUserLogin = (e) => {
+    // const handleUserLogin = (e) => {
+    //     e.preventDefault();
+
+    //     const user = {
+    //         email, password
+    //     }
+
+    //     // localStorage.setItem('userData',JSON.stringify(user));
+    //     setShowSuccess(true);
+    //     // setTimeout(() => {
+    //     //     setShowSuccess(false);
+    //     // }, 3000);
+    //     // alert("Successfull Login");
+    //     console.log(user);
+    // }
+    const handleUserLogin = async (e) => {
         e.preventDefault();
 
-        const user = {
-            email, password
+        try {
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            console.log("User created:", userCredential.user);
+        } catch (error) {
+            console.error("Registration error:", error.code);
+            console.error(error.message);
+        }
+    };
+
+    const handleForgotPassword = async () => {
+        if (!email) {
+            alert("Please enter your email first");
+            return;
         }
 
-        // localStorage.setItem('userData',JSON.stringify(user));
-        setShowSuccess(true);
-        // setTimeout(() => {
-        //     setShowSuccess(false);
-        // }, 3000);
-        // alert("Successfull Login");
-        console.log(user);
-    }
+        try {
+            await sendPasswordResetEmail(auth, email);
+
+            alert("Password reset email sent!");
+        } catch (error) {
+            console.error("Reset password error:", error.code);
+        }
+    };
+
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Logged in:", user.email);
+            } else {
+                console.log("Not logged in");
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     return (
         <div className="w-full h-[700px] flex pt-30">
             <div className="relative w-full  xl:w-[50%] h-full flex flex-col pt-5 xl:pl-30 p-10">
@@ -46,8 +96,8 @@ export default function login() {
                 <div className="pt-20">
 
                     <div className="w-full xl:w-100 h-[80px] border border-gray-400">
-                        <p className="p-2 text-sm text-gray-500">Email</p>
-                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full"  type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <p className="p-2 text-sm text-gray-500" value={email}>Email</p>
+                        <input className="border-none outline-none pb-1 pl-2 text-sm w-full" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="w-full xl:w-100 h-[80px] border border-gray-400">
                         <p className="p-2 text-sm text-gray-500" >Passward</p>
@@ -57,7 +107,8 @@ export default function login() {
 
 
                 {/* <p className="pt-20">Input Box</p> */}
-                <p className="text-[15px] text-gray-500 pt-2 cursor-pointer">Forgot Your Passward?</p>
+                <p className="text-[15px] text-gray-500 pt-2 cursor-pointer" type="button"
+                    onClick={handleForgotPassword}>Forgot Your Passward?</p>
                 <div className="pt-10">
                     <div className="w-30 bg-orange-400 py-2 px-1 text-sm flex justify-center items-center hover:bg-orange-500 transition-colors duration-500 cursor-pointer">
                         <p className="text-center text-white" onClick={handleUserLogin}>Sign In</p>
