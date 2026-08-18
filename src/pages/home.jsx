@@ -35,6 +35,7 @@ const Home = () => {
 };
     return (
         <div className="pt-30">
+            {/*Hero Section*/}
             <section className="h-[300px] relative w-full md:h-[600px] aspect-video">
                 <video className="absolute w-full h-full md:h-full inset-0 object-cover" autoPlay muted loop playsInline>
                     <source src={robinHeroVideo} />
@@ -64,6 +65,7 @@ const Home = () => {
                     <img className="w-40 h-auto" src={starbuck} alt="Logo" />
                 </div>
             </section> */}
+            {/*Sponcers*/}
             <section className=" flex flex-col gap-10">
                 <div className="">
                     <p className='text-center pt-10 md:pt-20 text-2xl text-black font-medium px-10 xl:px-80 '>Trusted Advisor to Fortune 100 Executives, Championship Athletes, and Titans of Industry</p>
@@ -190,6 +192,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            {/*Daily Master*/}
             </section>
             <section className="w-full flex flex-col flex-col-reverse lg:flex-row bg-gray-100 lg:gap-20 ">
                 <div className="w-full lg:w-[50%] flex flex-col gap-3 pl-5 xl:pl-40 pb-10 pr-5 sm:py-10">
@@ -205,7 +208,7 @@ const Home = () => {
                     <img className="h-[400px] w-[350px] p-10 lg:p-1" src={robinsharmapodcast} />
                 </div>
             </section>
-
+            {/*About Robin Sharma*/}
             <section className="w-full h-full flex flex-col xl:flex-row justify-center items-center gap-5 xl:gap-20">
                 <div className="bg-green-500 w-full xl:w-[50%]">
                     <img className="h-full w-full" src={robinsharmabigposter} />
@@ -219,7 +222,7 @@ const Home = () => {
 
                 </div>
             </section>
-
+            {/*About Books*/}
             <section className='flex flex-col justify-center items-center gap-5 py-20 px-5'>
                 <p className='text-3xl xl:text-6xl text-black '>#1 Bestselling Author</p>
                 <p className='text-gray-500 text-xl xl:text-2xl font-bold pt-5'>Over 25 Million Books Sold In 96+ Nations</p>
@@ -229,6 +232,7 @@ const Home = () => {
                     <img className='h-full w-full' src={robinsharmabook} />
                 </div>
             </section>
+            {/*Subscribe*/}
             <section className='flex flex-col sm:justify-center sm:items-center gap-5 py-10 xl:py-20 bg-gray-100 p-5'>
                 <p className='text-xl sm:text-3xl sm:text-center text-black px-5'>Personal Mentorship from Robin Sharma, Direct to Your Inbox</p>
                 <p className='text-1xl text-black text-light px-5 sm:text-center xl:px-60'>Gain access to Robin’s powerful insights to lead brilliantly, perform at your peak, and create lasting impact – all shared to support your highest work and best life.</p>

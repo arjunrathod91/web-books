@@ -27,17 +27,13 @@ export default async function handler(req, res) {
         <p>We're happy to have you with us.</p>
       `,
     });
-
-    console.log("EMAIL:", email);
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+    
 
     if (error) {
-      console.error("RESEND ERROR:", error);
+      console.error(error);
 
       return res.status(500).json({
         message: "Failed to send email",
-        error: error.message,
       });
     }
 
